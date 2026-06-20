@@ -1,11 +1,32 @@
----
-import Layout from "../layouts/Layout.astro";
-import { Button } from "@radix-ui/themes";
----
+import Layout from '../layouts/Layout.astro';<!-- Standard Section (Tiempos Headers, Graphik Body) -->
+<section class="hero-section">
+  <div class="container">
+    <span class="accent-text">Research Update</span>
+    <h1 class="hero-title">Shaping the Future of Intelligent Systems</h1>
+    <p class="hero-body">
+      This section uses our default typographical hierarchy. The headline above
+      is rendered in Tiempos Headline, and this body copy is rendered in
+      Graphik.
+    </p>
+  </div>
+</section>
 
-<Layout>
-  <main style="padding: 2rem;">
-    <h1>Clean Slate Achieved</h1>
-    <Button client:load>Radix is Working</Button>
-  </main>
-</Layout>
+<!-- Blog Reversal Section (Graphik Headers, Tiempos Body) -->
+<section class="blog-preview-section">
+  <div class="container">
+    <div class="prose-blog">
+      <span class="accent-text">Blog Entry</span>
+      <h2>The Blog Reversal Rule in Action</h2>
+      <p>
+        Because this section is wrapped in the <code>.prose-blog</code> class, the
+        typography has been completely reversed according to the Harvard Business
+        School style guide.
+      </p>
+      <p>
+        Notice how the header above is now rendered in a bold, sturdy sans-serif
+        (Graphik), while this paragraph you are reading is beautifully set in
+        Tiempos Text, which offers incredible readability for long-form content.
+      </p>
+    </div>
+  </div>
+</section>

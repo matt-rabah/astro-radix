@@ -1,218 +1,240 @@
-/* STREAMING_CHUNK:Importing design tokens... */
 /* Import variables first */
-@import './design-tokens.css';
+@import "./design-tokens.css";
 
 /* ========================================
-LOCAL FONT FACES
-Mapped perfectly to your public/fonts/ folder
-======================================== */
+   LOCAL FONT FACES 
+   Mapped perfectly to your public/fonts/ folder
+   ======================================== */
 
-/* STREAMING_CHUNK:Loading local font faces... */
 /* Graphik */
 @font-face {
-    font-family: 'Graphik';
-    src: url('/fonts/graphik-regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Graphik";
+  src: url("/fonts/graphik-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Graphik';
-    src: url('/fonts/graphik-medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Graphik";
+  src: url("/fonts/graphik-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Graphik';
-    src: url('/fonts/graphik-semibold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Graphik";
+  src: url("/fonts/graphik-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Graphik';
-    src: url('/fonts/graphik-bold.woff2') format('woff2');
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Graphik";
+  src: url("/fonts/graphik-bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Tiempos Headline (Display/Headers) */
 @font-face {
-    font-family: 'Tiempos Headline';
-    src: url('/fonts/tiempos-headline-light.woff2') format('woff2');
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos-headline-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tiempos Headline';
-    src: url('/fonts/tiempos-headline-light-italic.woff2') format('woff2');
-    font-weight: 300;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Tiempos Headline";
+  src: url("/fonts/tiempos-headline-light-italic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
 }
 
 /* Tiempos Text (Body Copy) */
 @font-face {
-    font-family: 'Tiempos Text';
-    src: url('/fonts/tiempos-text-regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Tiempos Text";
+  src: url("/fonts/tiempos-text-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tiempos Text';
-    src: url('/fonts/tiempos-text-regular-italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Tiempos Text";
+  src: url("/fonts/tiempos-text-regular-italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tiempos Text';
-    src: url('/fonts/tiempos-text-medium.woff2') format('woff2');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Tiempos Text";
+  src: url("/fonts/tiempos-text-medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tiempos Text';
-    src: url('/fonts/tiempos-text-medium-italic.woff2') format('woff2');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
+  font-family: "Tiempos Text";
+  src: url("/fonts/tiempos-text-medium-italic.woff2") format("woff2");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
-    font-family: 'Tiempos Text';
-    src: url('/fonts/tiempos-text-semibold.woff2') format('woff2');
-    font-weight: 600;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Tiempos Text";
+  src: url("/fonts/tiempos-text-semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Produkt (Accent) */
 @font-face {
-    font-family: 'Produkt';
-    src: url('/fonts/produkt-regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+  font-family: "Produkt";
+  src: url("/fonts/produkt-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* STREAMING_CHUNK:Setting base HTML rules... */
 /* ========================================
-BASE HTML RULES
-======================================== */
+   BASE HTML RULES
+   ======================================== */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: var(--font-sans); /* Graphik by default */
-    font-size: var(--text-base);
-    font-weight: var(--weight-normal);
-    line-height: var(--leading-normal);
-    color: var(--color-text-base);
-    background-color: var(--color-bg-base);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transition: background-color 0.3s ease, color 0.3s ease;
+  font-family: var(--font-sans);
+  /* Graphik by default */
+  font-size: var(--text-base);
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-normal);
+  color: var(--color-text-base);
+  background-color: var(--color-bg-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 /* Headers: Tiempos Headline by default */
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-serif-display);
-    font-weight: var(--weight-light); /* Matches your light.woff2 */
-    line-height: var(--leading-tight);
-    color: var(--color-primary);
-    margin-bottom: var(--space-2);
-    transition: color 0.3s ease;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-serif-display);
+  font-weight: var(--weight-light);
+  /* Matches your light.woff2 */
+  line-height: var(--leading-tight);
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  transition: color 0.3s ease;
 }
 
-h1 { font-size: var(--text-6xl); }
-h2 { font-size: var(--text-5xl); }
-h3 { font-size: var(--text-4xl); }
-h4 { font-size: var(--text-3xl); }
+h1 {
+  font-size: var(--text-6xl);
+}
+
+h2 {
+  font-size: var(--text-5xl);
+}
+
+h3 {
+  font-size: var(--text-4xl);
+}
+
+h4 {
+  font-size: var(--text-3xl);
+}
 
 p {
-    margin-bottom: var(--paragraph-spacing);
-    max-width: 70ch; /* Good reading length */
+  margin-bottom: var(--paragraph-spacing);
+  max-width: 70ch;
+  /* Good reading length */
 }
 
 a {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 /* Eyebrow / Accent Text */
 .accent-text {
-    font-family: var(--font-accent); /* Produkt */
-    font-size: var(--text-sm);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color-text-muted);
+  font-family: var(--font-accent);
+  /* Produkt */
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
 }
 
-/* STREAMING_CHUNK:Configuring blog typography reversal... */
 /* ========================================
-THE BLOG REVERSAL RULE
-Wrap blog articles in 
-======================================== */
+   THE BLOG REVERSAL RULE
+   Wrap blog articles in <div class="prose-blog">
+   ======================================== */
 .prose-blog {
-    font-family: var(--font-serif-text); /* Body is now Tiempos Text */
-    font-size: var(--text-lg); /* Slightly larger for reading */
+  font-family: var(--font-serif-text);
+  /* Body is now Tiempos Text */
+  font-size: var(--text-lg);
+  /* Slightly larger for reading */
 }
 
 .prose-blog h1,
 .prose-blog h2,
 .prose-blog h3,
 .prose-blog h4 {
-    font-family: var(--font-sans); /* Headers are now Graphik */
-    font-weight: var(--weight-semibold);
-    letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  /* Headers are now Graphik */
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.02em;
 }
 
 /* Container Utility */
 .container {
-    width: 100%;
-    max-width: var(--container-max);
-    margin: 0 auto;
-    padding: 0 var(--space-3);
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
 }
 
 /* Buttons */
 .btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: var(--space-1) var(--space-3);
-    border-radius: var(--radius-md);
-    font-family: var(--font-sans);
-    font-weight: var(--weight-medium);
-    font-size: var(--text-sm);
-    cursor: pointer;
-    border: none;
-    transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-medium);
+  font-size: var(--text-sm);
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.2s ease;
 }
 
 .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-bg-base); /* Inverts text automatically based on theme */
+  background-color: var(--color-primary);
+  color: var(--color-bg-base);
+  /* Inverts text automatically based on theme */
 }
 
 .btn-primary:hover {
-    opacity: 0.8;
+  opacity: 0.8;
 }
