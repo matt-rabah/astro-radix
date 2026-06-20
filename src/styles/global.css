@@ -1,0 +1,216 @@
+@import './design-tokens.css';
+
+/* ========================================
+LOCAL FONTS MAPPING
+Based exactly on public/fonts/ folder*/
+/* --- GRAPHIK (SANS) --- */
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/graphik-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/graphik-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/graphik-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Graphik';
+    src: url('/fonts/graphik-bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- TIEMPOS HEADLINE (DISPLAY SERIF) --- */
+@font-face {
+    font-family: 'Tiempos Headline';
+    src: url('/fonts/tiempos-headline-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Headline';
+    src: url('/fonts/tiempos-headline-light-italic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* --- TIEMPOS TEXT (BODY SERIF) --- */
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('/fonts/tiempos-text-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('/fonts/tiempos-text-regular-italic.woff2') format('woff2');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('/fonts/tiempos-text-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('/fonts/tiempos-text-medium-italic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tiempos Text';
+    src: url('/fonts/tiempos-text-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- PRODUKT (ACCENT SANS) --- */
+@font-face {
+    font-family: 'Produkt';
+    src: url('/fonts/produkt-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* --- BASE STYLES --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-gutter: stable;
+}
+
+body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    font-weight: var(--weight-regular);
+    line-height: var(--leading-normal);
+    color: var(--color-text-base);
+    background-color: var(--color-bg-base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* --- STANDARD TYPOGRAPHY (Primarily Sans, Tiempos Headers) --- /
+h1, h2, h3, h4, h5, h6 {
+font-family: var(--font-serif-display);
+/ Mapped to 300 to match the 'tiempos-headline-light' file precisely */
+font-weight 300;
+line-height: var(--leading-tight);
+color: var(--color-text-base)<margin-bottom>var(--space-4);
+}
+
+h1 {
+    font-size: var(--text-5xl);
+}
+
+h2 {
+    font-size: var(--text-4xl);
+}
+
+h3 {
+    font-size: var(--text-3xl);
+}
+
+p {
+    margin-bottom: var(--space-6);
+    max-width: 75ch;
+}
+
+/* The Eyebrow / Accent Text (Uses Produkt Regular) /
+.eyebrow {
+font-family: var(--font-accent);
+font-weight: 400; / Adjusted for produkt-regular */
+font-size: var(--text-sm)<text-transform>uppercase;
+letter-spacing: var(--tracking-wide);
+color: var(--color-text-muted)<display>block;
+margin-bottom: var(--space-2);
+}
+
+.eyebrow.with-rule::after {
+    content: "";
+    display: block;
+    width: 100%;
+    max-width: 60px;
+    height: 2px;
+    background-color: var(--color-brand-primary);
+    margin-top: var(--space-2);
+}
+
+/* --- THE BLOG TYPOGRAPHY REVERSAL --- */
+.prose-blog {
+    font-family: var(--font-serif-text);
+    font-size: var(--text-lg);
+    line-height: var(--leading-loose);
+    max-width: var(--container-blog);
+    margin: 0 auto;
+}
+
+.prose-blog h1,
+.prose-blog h2,
+.prose-blog h3,
+.prose-blog h4 {
+    font-family: var(--font-sans);
+    font-weight: var(--weight-semibold);
+    letter-spacing: var(--tracking-tight);
+    margin-top: var(--space-12);
+    margin-bottom: var(--space-6);
+}
+
+.prose-blog p {
+    margin-bottom: var(--space-6);
+}
+
+/* Standard Link Styles */
+a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity var(--transition-fast), color var(--transition-fast);
+}
+
+/* Standardized Structural Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding-left: var(--space-6);
+    padding-right: var(--space-6);
+}

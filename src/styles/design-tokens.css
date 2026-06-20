@@ -1,0 +1,109 @@
+/* ========================================
+DESIGN SYSTEM TOKENS - CADENCELAB (HBS Architecture)*/
+:root {
+    /* --- 1. LIGHT MODE COLORS (Default) --- /
+/ Using a sophisticated neutral palette since brand colors are TBD */
+    --color-brand-primary: #111827;
+    --color-brand-accent: #3b82f6;
+    --color-bg-base: #ffffff;
+    --color-bg-surface: #f3f4f6;
+    /* 8pt grid panels often use subtle offsets */
+    --color-bg-inverted: #111827;
+    --color-text-base: #111827;
+    --color-text-muted: #4b5563;
+    --color-text-inverted: #ffffff;
+    --color-border: #e5e7eb;
+    --color-border-subtle: #f3f4f6;
+    /* --- 2. TYPOGRAPHY (HBS Ruleset) --- /
+/ Maps to your custom .woff2 files */
+    --font-sans: 'Graphik', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-serif-display: 'Tiempos Headline', 'Tiempos Fine', Georgia, serif;
+    --font-serif-text: 'Tiempos Text', 'Tiempos', Georgia, serif;
+    --font-accent: 'Produkt', 'Graphik Condensed', sans-serif;
+    /* Fluid Font Sizes (Based on HBS digital specs) /
+--text-xs: 0.75rem;     / 12px /
+--text-sm: 0.875rem;    / 14px /
+--text-base: 1rem;      / 16px - Base body copy /
+--text-lg: 1.125rem;    / 18px /
+--text-xl: 1.25rem;     / 20px /
+--text-2xl: 1.5rem;     / 24px /
+--text-3xl: 2rem;       / 32px /
+--text-4xl: clamp(2.25rem, 4vw, 3rem);     / 36px - 48px /
+--text-5xl: clamp(3rem, 6vw, 4.5rem);      / 48px - 72px /
+--text-6xl: clamp(3.75rem, 8vw, 6rem);     / 60px - 96px */
+    /* Font Weights */
+    --weight-regular: 400;
+    --weight-medium: 500;
+    --weight-semibold: 600;
+    --weight-bold: 700;
+    /* Line Heights (HBS requires at least +2px leading for readability) */
+    --leading-none: 1;
+    --leading-tight: 1.15;
+    --leading-snug: 1.3;
+    --leading-normal: 1.6;
+    --leading-loose: 1.8;
+    /* Letter Spacing /
+--tracking-tight: -0.02em;
+--tracking-normal: 0em;
+--tracking-wide: 0.05em;   / For Eyebrows */
+    --tracking-widest: 0.1em;
+    /* --- 3. 8-POINT GRID SYSTEM (HBS Standard) --- /
+--space-0: 0px;
+--space-1: 0.25rem;  / 4px /
+--space-2: 0.5rem;   / 8px /
+--space-3: 0.75rem;  / 12px /
+--space-4: 1rem;     / 16px /
+--space-5: 1.25rem;  / 20px /
+--space-6: 1.5rem;   / 24px /
+--space-8: 2rem;     / 32px /
+--space-10: 2.5rem;  / 40px /
+--space-12: 3rem;    / 48px /
+--space-16: 4rem;    / 64px /
+--space-20: 5rem;    / 80px /
+--space-24: 6rem;    / 96px /
+--space-32: 8rem;    / 128px */
+    --container-max: 1280px;
+    --container-blog: 720px;
+    /* Narrower column for reading */
+    /* --- 4. BORDERS & RADII --- */
+    --border-1: 1px;
+    --border-2: 2px;
+    --radius-none: 0px;
+    --radius-sm: 0.25rem;
+    /* 4px /
+--radius-md: 0.5rem;  / 8px /
+--radius-lg: 1rem;    / 16px */
+    /* --- 5. EFFECTS --- */
+    --transition-fast: 150ms ease;
+    --transition-normal: 300ms ease;
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-base: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    --z-sticky: 40;
+}
+
+/* --- 1B. DARK MODE COLORS --- /
+/Activates via system preference OR a manual 'data-theme="dark"'attribute on the  tag for explicit user toggling.*/
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --color-bg-base: #111827;
+        --color-bg-surface: #1f2937;
+        --color-bg-inverted: #ffffff;
+        --color-text-base: #f9fafb;
+        --color-text-muted: #9ca3af;
+        --color-text-inverted: #111827;
+
+        --color-border: #374151;
+        --color-border-subtle: #1f2937;
+    }
+}
+
+:root[data-theme="dark"] {
+    --color-bg-base: #111827;
+    --color-bg-surface: #1f2937;
+    --color-bg-inverted: #ffffff;
+    --color-text-base: #f9fafb;
+    --color-text-muted: #9ca3af;
+    --color-text-inverted: #111827;
+    --color-border: #374151;
+    --color-border-subtle: #1f2937;
+}
