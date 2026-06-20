@@ -19,5 +19,10 @@
   },
   "*.{css,md,json}": [
     "prettier --write"
-  ]
+  ],
+  "dependencies": {
+    "@astrojs/react": "^5.0.7",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  }
 }
