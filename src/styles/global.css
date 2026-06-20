@@ -129,13 +129,14 @@ body {
     transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
-/* --- STANDARD TYPOGRAPHY (Primarily Sans, Tiempos Headers) --- /
+/* --- STANDARD TYPOGRAPHY (Primarily Sans, Tiempos Headers) --- */
 h1, h2, h3, h4, h5, h6 {
-font-family: var(--font-serif-display);
-/ Mapped to 300 to match the 'tiempos-headline-light' file precisely */
-font-weight 300;
-line-height: var(--leading-tight);
-color: var(--color-text-base)<margin-bottom>var(--space-4);
+    font-family: var(--font-serif-display);
+    /* Mapped to 300 to match the 'tiempos-headline-light' file precisely */
+    font-weight: 300;
+    line-height: var(--leading-tight);
+    color: var(--color-text-base);
+    margin-bottom: var(--space-4);
 }
 
 h1 {
@@ -155,14 +156,16 @@ p {
     max-width: 75ch;
 }
 
-/* The Eyebrow / Accent Text (Uses Produkt Regular) /
+/* The Eyebrow / Accent Text (Uses Produkt Regular) */
 .eyebrow {
-font-family: var(--font-accent);
-font-weight: 400; / Adjusted for produkt-regular */
-font-size: var(--text-sm)<text-transform>uppercase;
-letter-spacing: var(--tracking-wide);
-color: var(--color-text-muted)<display>block;
-margin-bottom: var(--space-2);
+    font-family: var(--font-accent);
+    font-weight: 400; /* Adjusted for produkt-regular */
+    font-size: var(--text-sm);
+    text-transform: uppercase;
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: var(--space-2);
 }
 
 .eyebrow.with-rule::after {
