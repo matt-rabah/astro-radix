@@ -1,48 +1,308 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const title = "About | Cadence Lab";
+const description =
+  "Cadence Lab helps organizations improve customer experience through systems thinking, customer insight, operational design, and practical human-in-the-loop AI integration.";
 ---
 
-<Layout
-  title="Matt Rabah"
-  description="Customer experience, systems, and implementation work."
->
-  <main>
-    <!-- Standard Section -->
-    <section class="hero-section">
+<Layout title={title} description={description}>
+  <main class="about-page">
+    <section class="about-hero">
       <div class="container">
-        <span class="accent-text">Research Update</span>
+        <span class="accent-text">About Cadence Lab</span>
 
-        <h1 class="hero-title">Shaping the Future of Intelligent Systems</h1>
+        <h1>
+          Customer experience work for teams that need more than a journey map.
+        </h1>
 
-        <p class="hero-body">
-          This section uses our default typographical hierarchy. The headline
-          above is rendered in Tiempos Headline, and this body copy is rendered
-          in Graphik.
+        <p class="about-hero__lead">
+          Cadence Lab helps organizations diagnose and improve the systems
+          behind customer outcomes: the handoffs, decisions, data, tools, and
+          operating habits that shape the actual customer experience.
         </p>
       </div>
     </section>
 
-    <!-- Blog Reversal Section -->
-    <section class="blog-preview-section">
+    <section class="about-section">
+      <div class="container about-grid">
+        <div class="about-section__label">
+          <span class="accent-text">Point of View</span>
+        </div>
+
+        <div class="about-section__content">
+          <h2>
+            Most customer experience problems are not caused by a lack of
+            empathy.
+          </h2>
+
+          <p>
+            They are caused by unclear ownership, fragmented systems, weak
+            feedback loops, inconsistent handoffs, underused customer data, and
+            tools that do not match how teams actually work.
+          </p>
+
+          <p>
+            Cadence Lab starts there. The goal is not to produce generic CX
+            artifacts. The goal is to understand how the experience currently
+            operates, identify where friction is created, and design practical
+            changes that improve outcomes for customers and the teams serving
+            them.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section about-section--muted">
+      <div class="container about-grid">
+        <div class="about-section__label">
+          <span class="accent-text">What We Work On</span>
+        </div>
+
+        <div class="about-section__content">
+          <h2>
+            Cadence Lab works at the intersection of CX, operations, CRM, and
+            AI-enabled service design.
+          </h2>
+
+          <p>
+            The work is useful when an organization knows the customer
+            experience matters, but the underlying system is too fragmented to
+            improve through messaging, training, or surface-level process
+            changes alone.
+          </p>
+
+          <div class="capability-list">
+            <article>
+              <h3>Customer experience diagnosis</h3>
+              <p>
+                Identifying where the customer journey breaks down and what
+                operational conditions are causing the friction.
+              </p>
+            </article>
+
+            <article>
+              <h3>Service and operating model design</h3>
+              <p>
+                Clarifying ownership, escalation paths, handoffs, decision
+                points, and team responsibilities across the experience.
+              </p>
+            </article>
+
+            <article>
+              <h3>CRM and customer data strategy</h3>
+              <p>
+                Turning customer information into usable segmentation, outreach,
+                adoption, retention, and service workflows.
+              </p>
+            </article>
+
+            <article>
+              <h3>Human-in-the-loop AI integration</h3>
+              <p>
+                Applying AI where it improves speed, consistency, visibility, or
+                decision support without removing human judgment from important
+                customer moments.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="container about-grid">
+        <div class="about-section__label">
+          <span class="accent-text">How We Work</span>
+        </div>
+
+        <div class="about-section__content">
+          <h2>The work is diagnostic first, then practical.</h2>
+
+          <div class="principles-list">
+            <article>
+              <h3>Start with the real operating environment.</h3>
+              <p>
+                We look at what customers and teams actually experience, not
+                just the intended process or the idealized journey.
+              </p>
+            </article>
+
+            <article>
+              <h3>Separate symptoms from system causes.</h3>
+              <p>
+                Low adoption, repeat escalations, slow response times, and
+                inconsistent service are usually signals of a deeper design
+                problem.
+              </p>
+            </article>
+
+            <article>
+              <h3>Design for implementation, not presentation.</h3>
+              <p>
+                Recommendations need to survive real constraints: team capacity,
+                CRM limitations, leadership priorities, compliance needs, and
+                change fatigue.
+              </p>
+            </article>
+
+            <article>
+              <h3>Use AI only where it improves the work.</h3>
+              <p>
+                AI is not treated as a blanket solution. It is evaluated against
+                specific jobs: summarizing, routing, surfacing signals,
+                supporting decisions, or reducing avoidable manual effort.
+              </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section about-section--closing">
       <div class="container">
-        <div class="prose-blog">
-          <span class="accent-text">Blog Entry</span>
+        <div class="closing-panel">
+          <span class="accent-text">Fit</span>
 
-          <h2>The Blog Reversal Rule in Action</h2>
-
-          <p>
-            Because this section is wrapped in the <code>.prose-blog</code>
-            class, the typography has been completely reversed according to the Harvard
-            Business School style guide.
-          </p>
+          <h2>
+            Best fit for teams with complex customer journeys, fragmented
+            systems, or stalled CX initiatives.
+          </h2>
 
           <p>
-            Notice how the header above is now rendered in a bold, sturdy
-            sans-serif, while this paragraph is set in Tiempos Text for
-            long-form readability.
+            Cadence Lab is built for organizations that need a clearer operating
+            model for customer outcomes, not another generic CX playbook. The
+            work is especially relevant when service, success, sales,
+            operations, product, and technology teams all influence the
+            experience but do not yet have a shared system for improving it.
           </p>
+
+          <a href="/contact/" class="btn btn-primary">Start a conversation</a>
         </div>
       </div>
     </section>
   </main>
 </Layout>
+
+<style>
+  .about-page {
+    background: var(--color-bg-base);
+  }
+
+  .about-hero {
+    padding-block: clamp(5rem, 10vw, 9rem);
+  }
+
+  .about-hero h1 {
+    max-width: 13ch;
+    margin-bottom: var(--space-4);
+    font-size: clamp(3.25rem, 8vw, var(--text-7xl));
+    line-height: 0.92;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  .about-hero__lead {
+    max-width: 62ch;
+    font-size: clamp(var(--text-xl), 2vw, var(--text-2xl));
+    line-height: var(--leading-snug);
+    color: var(--color-text-base);
+  }
+
+  .about-section {
+    padding-block: clamp(4rem, 8vw, 7rem);
+    border-top: var(--border-1) solid var(--color-border);
+  }
+
+  .about-section--muted {
+    background: var(--color-bg-surface);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .about-section__label {
+    position: sticky;
+    top: var(--space-4);
+  }
+
+  .about-section__content {
+    max-width: 780px;
+  }
+
+  .about-section__content h2 {
+    max-width: 17ch;
+    margin-bottom: var(--space-4);
+    font-size: clamp(var(--text-4xl), 5vw, var(--text-6xl));
+    line-height: 0.98;
+  }
+
+  .about-section__content p {
+    font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-base);
+  }
+
+  .capability-list,
+  .principles-list {
+    display: grid;
+    gap: var(--space-5);
+    margin-top: var(--space-5);
+  }
+
+  .capability-list article,
+  .principles-list article {
+    padding-top: var(--space-4);
+    border-top: var(--border-1) solid var(--color-border);
+  }
+
+  .capability-list h3,
+  .principles-list h3 {
+    max-width: 24ch;
+    margin-bottom: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: var(--text-2xl);
+    font-weight: var(--weight-semibold);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-snug);
+  }
+
+  .closing-panel {
+    max-width: 880px;
+    padding-block: clamp(4rem, 8vw, 7rem);
+  }
+
+  .closing-panel h2 {
+    max-width: 16ch;
+    margin-bottom: var(--space-4);
+    font-size: clamp(var(--text-4xl), 6vw, var(--text-6xl));
+    line-height: 0.98;
+  }
+
+  .closing-panel p {
+    max-width: 66ch;
+    margin-bottom: var(--space-4);
+    font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
+    line-height: var(--leading-relaxed);
+  }
+
+  @media (max-width: 800px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-3);
+    }
+
+    .about-section__label {
+      position: static;
+    }
+
+    .about-hero h1,
+    .about-section__content h2,
+    .closing-panel h2 {
+      max-width: 100%;
+    }
+  }
+</style>
