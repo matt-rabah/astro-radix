@@ -1,0 +1,204 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+
+const title = "AI Service Readiness Review | Cadence Lab";
+const description =
+  "An AI service readiness review for teams evaluating AI tools in customer success, support, service operations, or CRM workflows before the operating model is ready.";
+
+const readinessSignals = [
+  "Leaders are asking where AI should be used, but the current service workflow is not clearly documented.",
+  "Teams want automation, but customer data, knowledge, and escalation rules are inconsistent.",
+  "AI tools are being evaluated before anyone has defined the human review points.",
+  "The organization has pilots, but no clear operating model for adoption, trust, governance, or measurement.",
+];
+
+const reviewAreas = [
+  "Service workflows that could benefit from AI assistance.",
+  "Customer data, knowledge, and grounding readiness.",
+  "Human-in-the-loop decision and escalation points.",
+  "Risk, compliance, and customer trust considerations.",
+  "Adoption requirements for frontline teams and managers.",
+];
+
+const outputs = [
+  "AI service use-case map ranked by value, feasibility, and risk.",
+  "Human-in-the-loop workflow recommendations.",
+  "Readiness gaps across data, knowledge, process, and governance.",
+  "Practical next-step roadmap before tool selection or implementation.",
+];
+---
+
+<Layout title={title} description={description}>
+  <main class="service-page">
+    <section class="service-hero">
+      <div class="container">
+        <span class="accent-text">AI Readiness</span>
+
+        <h1>AI Service Readiness Review</h1>
+
+        <p class="lead">
+          For teams evaluating AI in service, support, customer success, or CRM
+          workflows before the operating model is ready.
+        </p>
+      </div>
+    </section>
+
+    <section class="service-section service-section--bordered">
+      <div class="container service-grid">
+        <div>
+          <span class="accent-text">Point of View</span>
+        </div>
+
+        <div class="service-copy">
+          <h2>AI will not fix an unclear service system.</h2>
+
+          <p>
+            It will usually expose it faster. If ownership is unclear, customer
+            data is weak, escalation rules are inconsistent, or teams do not
+            trust the workflow, AI can make the experience faster without making
+            it better.
+          </p>
+
+          <p>
+            The AI Service Readiness Review identifies where AI can support
+            customer work responsibly, and where the operating model needs to be
+            clarified first.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="container service-grid">
+        <div>
+          <span class="accent-text">Readiness Signals</span>
+        </div>
+
+        <div class="card-list">
+          {readinessSignals.map((signal) => <article>{signal}</article>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section service-section--surface">
+      <div class="container service-grid">
+        <div>
+          <span class="accent-text">Review Areas</span>
+        </div>
+
+        <div class="service-copy">
+          <h2>What gets examined</h2>
+
+          <ul class="check-list">
+            {reviewAreas.map((area) => <li>{area}</li>)}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="service-section">
+      <div class="container service-grid">
+        <div>
+          <span class="accent-text">Outputs</span>
+        </div>
+
+        <div class="service-copy">
+          <ul class="check-list">
+            {outputs.map((output) => <li>{output}</li>)}
+          </ul>
+
+          <a href="/contact/" class="btn btn-primary">Assess AI readiness</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .service-hero {
+    padding-block: clamp(var(--space-12), 12vw, var(--space-20));
+  }
+
+  .service-hero h1 {
+    max-width: 12ch;
+  }
+
+  .service-section {
+    padding-block: clamp(var(--space-10), 10vw, var(--space-16));
+  }
+
+  .service-section--bordered {
+    border-top: var(--border-1) solid var(--color-border);
+  }
+
+  .service-section--surface {
+    background: var(--color-bg-surface);
+    border-block: var(--border-1) solid var(--color-border);
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: minmax(10rem, 0.35fr) minmax(0, 1fr);
+    gap: clamp(var(--space-4), 8vw, var(--space-12));
+    align-items: start;
+  }
+
+  .service-copy {
+    max-width: 780px;
+  }
+
+  .service-copy h2 {
+    max-width: 16ch;
+  }
+
+  .service-copy p,
+  .service-copy li {
+    font-size: clamp(var(--text-lg), 1.8vw, var(--text-xl));
+    line-height: var(--leading-relaxed);
+  }
+
+  .card-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+
+  .card-list article {
+    padding: var(--space-4);
+    border: var(--border-1) solid var(--color-border);
+    font-size: var(--text-lg);
+    line-height: var(--leading-relaxed);
+    background: var(--color-bg-base);
+  }
+
+  .check-list {
+    display: grid;
+    gap: var(--space-2);
+    margin: 0 0 var(--space-5);
+    padding: 0;
+    list-style: none;
+  }
+
+  .check-list li {
+    position: relative;
+    padding-left: var(--space-4);
+  }
+
+  .check-list li::before {
+    content: "";
+    position: absolute;
+    top: 0.72em;
+    left: 0;
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: var(--radius-full);
+    background: var(--color-accent);
+  }
+
+  @media (max-width: 900px) {
+    .service-grid,
+    .card-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
