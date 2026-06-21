@@ -1,25 +1,375 @@
 ---
-import ThemeToggle from "./ThemeToggle.astro";
+type NavItem = {
+  name: string;
+  path: string;
+  children: NavItem[];
+};
+
+const navData: NavItem[] = [
+  {
+    name: "Home",
+    path: "/",
+    children: [],
+  },
+  {
+    name: "About",
+    path: "/about/",
+    children: [],
+  },
+  {
+    name: "Services",
+    path: "/services/",
+    children: [
+      {
+        name: "CX Diagnosis",
+        path: "/services/cx-diagnosis/",
+        children: [],
+      },
+      {
+        name: "Operating Model Design",
+        path: "/services/operating-model-design/",
+        children: [],
+      },
+      {
+        name: "CRM and Customer Data",
+        path: "/services/crm-customer-data/",
+        children: [],
+      },
+      {
+        name: "Human-in-the-Loop AI",
+        path: "/services/human-in-the-loop-ai/",
+        children: [],
+      },
+    ],
+  },
+  {
+    name: "Insights",
+    path: "/insights/",
+    children: [
+      {
+        name: "Research Notes",
+        path: "/research/",
+        children: [],
+      },
+      {
+        name: "Blog",
+        path: "/blog/",
+        children: [],
+      },
+      {
+        name: "Frameworks",
+        path: "/frameworks/",
+        children: [],
+      },
+    ],
+  },
+  {
+    name: "Work",
+    path: "/work/",
+    children: [
+      {
+        name: "Case Studies",
+        path: "/work/",
+        children: [],
+      },
+      {
+        name: "Methods",
+        path: "/methods/",
+        children: [],
+      },
+    ],
+  },
+];
+
+const cta = {
+  name: "Start a conversation",
+  path: "/contact/",
+};
 ---
 
 <header class="site-header">
-  <div class="header-inner">
-    <!-- Logo / Site Title -->
-    <a href="/" class="site-logo" aria-label="Home"> Matt Rabah </a>
+  <div class="site-header__inner">
+    <a href="/" class="site-header__brand" aria-label="Cadence Lab home">
+      <span>Cadence</span>
+      <span class="site-header__brand-muted">Lab</span>
+    </a>
 
-    <!-- Main Navigation -->
-    <nav class="desktop-nav" aria-label="Main navigation">
-      <ul class="nav-links">
-        <li><a href="/about/">About</a></li>
-        <li><a href="/research/">Research</a></li>
-        <li><a href="/blog/">Blog</a></li>
+    <nav class="primary-nav" aria-label="Primary navigation">
+      <ul class="primary-nav__list">
+        {
+          navData.map((item) => (
+            <li class="primary-nav__item">
+              <a
+                href={item.path}
+                class:list={[
+                  "primary-nav__link",
+                  item.children.length > 0 ? "primary-nav__link--has-menu" : "",
+                ]}
+              >
+                <span>{item.name}</span>
+
+                {item.children.length > 0 && (
+                  <svg
+                    class="primary-nav__chevron"
+                    width="12"
+                    height="12"
+                    viewBox="0 0 12 12"
+                    aria-hidden="true"
+                  >
+                    <path
+                      d="M3 4.5L6 7.5L9 4.5"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                )}
+              </a>
+
+              {item.children.length > 0 && (
+                <div class="dropdown dropdown--level-one">
+                  <ul class="dropdown__list">
+                    {item.children.map((child) => (
+                      <li class="dropdown__item">
+                        <a href={child.path} class="dropdown__link">
+                          <span>{child.name}</span>
+
+                          {child.children.length > 0 && (
+                            <svg
+                              class="dropdown__chevron"
+                              width="12"
+                              height="12"
+                              viewBox="0 0 12 12"
+                              aria-hidden="true"
+                            >
+                              <path
+                                d="M4.5 3L7.5 6L4.5 9"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          )}
+                        </a>
+
+                        {child.children.length > 0 && (
+                          <div class="dropdown dropdown--nested">
+                            <ul class="dropdown__list">
+                              {child.children.map((grandchild) => (
+                                <li class="dropdown__item">
+                                  <a
+                                    href={grandchild.path}
+                                    class="dropdown__link"
+                                  >
+                                    <span>{grandchild.name}</span>
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </li>
+          ))
+        }
       </ul>
     </nav>
 
-    <!-- Actions -->
-    <div class="action-area">
-      <ThemeToggle />
-      <a href="/contact/" class="btn btn-primary">Contact</a>
+    <div class="site-header__actions">
+      <a href={cta.path} class="btn btn-primary">{cta.name}</a>
     </div>
   </div>
 </header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    border-bottom: var(--border-1) solid var(--color-border);
+    background: color-mix(in srgb, var(--color-bg-base) 94%, transparent);
+    backdrop-filter: blur(16px);
+  }
+
+  .site-header__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    width: min(100% - 2rem, var(--container-max, 1200px));
+    min-height: 4.5rem;
+    margin-inline: auto;
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.25rem;
+    font-family: var(--font-sans);
+    font-size: var(--text-lg);
+    font-weight: var(--weight-semibold);
+    line-height: 1;
+    letter-spacing: var(--tracking-snug);
+    white-space: nowrap;
+    color: var(--color-text-base);
+  }
+
+  .site-header__brand-muted {
+    color: var(--color-text-muted);
+  }
+
+  .primary-nav {
+    display: flex;
+    align-items: center;
+  }
+
+  .primary-nav__list {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+  }
+
+  .primary-nav__item {
+    position: relative;
+  }
+
+  .primary-nav__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    min-height: 2.5rem;
+    padding-inline: var(--space-2);
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    color: var(--color-text-muted);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .primary-nav__link:hover,
+  .primary-nav__link:focus-visible,
+  .primary-nav__item:hover > .primary-nav__link,
+  .primary-nav__item:focus-within > .primary-nav__link {
+    color: var(--color-text-base);
+    background-color: var(--color-bg-surface);
+  }
+
+  .primary-nav__chevron {
+    flex: 0 0 auto;
+    transition: transform 0.2s ease;
+  }
+
+  .primary-nav__item:hover .primary-nav__chevron,
+  .primary-nav__item:focus-within .primary-nav__chevron {
+    transform: rotate(180deg);
+  }
+
+  .dropdown {
+    position: absolute;
+    min-width: 16rem;
+    padding: 0.5rem;
+    border: var(--border-1) solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-bg-base);
+    box-shadow: 0 18px 48px rgb(15 23 42 / 10%);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-0.25rem);
+    transition:
+      opacity 0.16s ease,
+      visibility 0.16s ease,
+      transform 0.16s ease;
+  }
+
+  .dropdown--level-one {
+    top: calc(100% + 0.5rem);
+    left: 0;
+  }
+
+  .dropdown--nested {
+    top: -0.5rem;
+    left: calc(100% + 0.5rem);
+  }
+
+  .primary-nav__item:hover > .dropdown,
+  .primary-nav__item:focus-within > .dropdown,
+  .dropdown__item:hover > .dropdown,
+  .dropdown__item:focus-within > .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .dropdown__list {
+    display: grid;
+    gap: 0.125rem;
+    list-style: none;
+  }
+
+  .dropdown__item {
+    position: relative;
+  }
+
+  .dropdown__link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-2);
+    padding: 0.75rem;
+    border-radius: var(--radius-md);
+    font-family: var(--font-sans);
+    font-size: var(--text-sm);
+    font-weight: var(--weight-medium);
+    line-height: 1.2;
+    color: var(--color-text-base);
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  .dropdown__link:hover,
+  .dropdown__link:focus-visible,
+  .dropdown__item:hover > .dropdown__link,
+  .dropdown__item:focus-within > .dropdown__link {
+    color: var(--color-primary);
+    background-color: var(--color-bg-surface);
+  }
+
+  .dropdown__chevron {
+    flex: 0 0 auto;
+    color: var(--color-text-muted);
+  }
+
+  .site-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+  }
+
+  @media (max-width: 900px) {
+    .primary-nav {
+      display: none;
+    }
+
+    .site-header__inner {
+      min-height: 4rem;
+    }
+
+    .site-header__actions .btn {
+      min-height: 2.25rem;
+      padding-inline: var(--space-2);
+    }
+  }
+</style>
