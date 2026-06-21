@@ -1,9 +1,8 @@
-/* Import variables first */
 @import "./design-tokens.css";
 
 /* ========================================
    Local font faces
-   Assumes font files are in public/fonts/
+   Fonts are served from public/fonts/
    ======================================== */
 
 /* Graphik */
@@ -36,6 +35,32 @@
   src: url("/fonts/graphik-bold.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
+}
+
+/* Produkt */
+@font-face {
+  font-family: "Produkt";
+  src: url("/fonts/produkt-regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Tiempos Fine */
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url("/fonts/tiempos-fine-light.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tiempos Fine";
+  src: url("/fonts/tiempos-fine-light-italic.woff2") format("woff2");
+  font-weight: 300;
+  font-style: italic;
   font-display: swap;
 }
 
@@ -97,17 +122,8 @@
   font-display: swap;
 }
 
-/* Produkt */
-@font-face {
-  font-family: "Produkt";
-  src: url("/fonts/produkt-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
 /* ========================================
-   Base HTML rules
+   Base reset
    ======================================== */
 
 *,
@@ -119,6 +135,7 @@
 html {
   min-height: 100%;
   scroll-behavior: smooth;
+  background: var(--color-bg-base);
 }
 
 body {
@@ -129,13 +146,10 @@ body {
   font-weight: var(--weight-normal);
   line-height: var(--leading-normal);
   color: var(--color-text-base);
-  background-color: var(--color-bg-base);
+  background: var(--color-bg-base);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
 }
 
 img,
@@ -154,6 +168,10 @@ select {
   font: inherit;
 }
 
+button {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -163,7 +181,29 @@ code {
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  font-size: 0.92em;
+  font-size: 0.9em;
+}
+
+/* ========================================
+   Global layout
+   ======================================== */
+
+main {
+  min-height: 60vh;
+}
+
+.container {
+  width: min(100% - 2rem, var(--container-max));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(100% - 2rem, var(--container-wide));
+  margin-inline: auto;
+}
+
+.readable {
+  max-width: var(--container-readable);
 }
 
 /* ========================================
@@ -176,30 +216,43 @@ h3,
 h4,
 h5,
 h6 {
-  max-width: 16ch;
-  margin: 0 0 var(--space-2);
-  font-family: var(--font-serif-display);
-  font-weight: var(--weight-light);
-  line-height: var(--leading-tight);
-  letter-spacing: -0.035em;
+  margin: 0 0 var(--space-3);
   color: var(--color-primary);
-  transition: color 0.3s ease;
 }
 
 h1 {
-  font-size: clamp(3.25rem, 8vw, var(--text-6xl));
+  max-width: 13ch;
+  font-family: var(--font-serif-display);
+  font-size: clamp(3.75rem, 8vw, var(--text-7xl));
+  font-weight: var(--weight-light);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
 }
 
 h2 {
-  font-size: clamp(2.25rem, 5vw, var(--text-5xl));
+  max-width: 16ch;
+  font-family: var(--font-sans);
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
 }
 
 h3 {
-  font-size: clamp(1.75rem, 4vw, var(--text-4xl));
+  max-width: 24ch;
+  font-family: var(--font-sans);
+  font-size: clamp(var(--text-xl), 3vw, var(--text-2xl));
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
 }
 
-h4 {
-  font-size: clamp(1.375rem, 3vw, var(--text-3xl));
+h4,
+h5,
+h6 {
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
 }
 
 p {
@@ -211,82 +264,50 @@ p:last-child {
   margin-bottom: 0;
 }
 
-/* ========================================
-   Layout utilities
-   ======================================== */
-
-.container {
-  width: min(100% - 2rem, var(--container-max, 1120px));
-  margin-inline: auto;
+.lead {
+  max-width: 62ch;
+  font-size: clamp(var(--text-xl), 2.4vw, var(--text-2xl));
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-snug);
+  color: var(--color-text-base);
 }
-
-.hero-section,
-.blog-preview-section {
-  padding-block: clamp(4rem, 8vw, 8rem);
-}
-
-.hero-section + .blog-preview-section {
-  padding-top: 0;
-}
-
-.hero-title {
-  max-width: 14ch;
-  line-height: 0.95;
-  letter-spacing: -0.045em;
-}
-
-.hero-body {
-  max-width: 70ch;
-  font-size: clamp(var(--text-lg), 2vw, var(--text-xl, 1.25rem));
-  line-height: 1.6;
-}
-
-/* ========================================
-   Accent text
-   ======================================== */
 
 .accent-text {
   display: inline-block;
   margin-bottom: var(--space-3);
   font-family: var(--font-accent);
   font-size: var(--text-sm);
-  font-weight: var(--weight-normal);
-  line-height: 1;
+  font-weight: var(--weight-bold);
+  line-height: 1.2;
+  letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  letter-spacing: 0.08em;
   color: var(--color-text-muted);
 }
 
-/* ========================================
-   Blog reversal rule
-   Wrap blog articles in <div class="prose-blog">
-   ======================================== */
-
+/* Editorial prose utility */
+.prose,
 .prose-blog {
   max-width: 72ch;
   font-family: var(--font-serif-text);
-  font-size: clamp(var(--text-lg), 2vw, var(--text-xl, 1.25rem));
-  line-height: 1.65;
+  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
+  line-height: var(--leading-relaxed);
+  letter-spacing: var(--tracking-snug);
 }
 
+.prose h1,
+.prose h2,
+.prose h3,
 .prose-blog h1,
 .prose-blog h2,
-.prose-blog h3,
-.prose-blog h4 {
-  max-width: 18ch;
+.prose-blog h3 {
   font-family: var(--font-sans);
   font-weight: var(--weight-semibold);
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-  color: var(--color-primary);
+  letter-spacing: var(--tracking-tight);
 }
 
+.prose p,
 .prose-blog p {
   max-width: 70ch;
-}
-
-.prose-blog code {
-  font-size: 0.85em;
 }
 
 /* ========================================
@@ -297,52 +318,79 @@ p:last-child {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 2.5rem;
-  padding: var(--space-1) var(--space-3);
-  border: 0;
-  border-radius: var(--radius-md);
+  min-height: 2.75rem;
+  padding: 0 var(--space-3);
+  border: var(--border-1) solid transparent;
+  border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
+  font-weight: var(--weight-semibold);
   line-height: 1;
-  cursor: pointer;
   transition:
-    opacity 0.2s ease,
+    color 0.2s ease,
     background-color 0.2s ease,
-    color 0.2s ease;
+    border-color 0.2s ease,
+    opacity 0.2s ease;
 }
 
 .btn-primary {
-  color: var(--color-bg-base);
+  color: #ffffff;
   background-color: var(--color-primary);
 }
 
-.btn-primary:hover {
-  opacity: 0.85;
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  opacity: 0.86;
+}
+
+.btn-secondary {
+  color: var(--color-text-base);
+  border-color: var(--color-border);
+  background-color: transparent;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: var(--color-border-strong);
+  background-color: var(--color-bg-surface);
 }
 
 /* ========================================
-   Basic responsive adjustments
+   Page rhythm helpers
    ======================================== */
 
-@media (max-width: 720px) {
-  .container {
-    width: min(100% - 1.5rem, var(--container-max, 1120px));
+.page-section {
+  padding-block: clamp(var(--space-10), 10vw, var(--space-20));
+}
+
+.page-section--bordered {
+  border-top: var(--border-1) solid var(--color-border);
+}
+
+.page-section--surface {
+  background: var(--color-bg-surface);
+}
+
+/* ========================================
+   Responsive
+   ======================================== */
+
+@media (max-width: 800px) {
+  .container,
+  .container-wide {
+    width: min(100% - 1.5rem, var(--container-max));
   }
 
-  .hero-section,
-  .blog-preview-section {
-    padding-block: 4rem;
+  h1 {
+    max-width: 100%;
+    font-size: clamp(3rem, 16vw, 4.75rem);
   }
 
-  h1,
-  h2,
-  h3,
-  h4 {
+  h2 {
     max-width: 100%;
   }
 
-  .hero-title {
-    max-width: 11ch;
+  .lead {
+    font-size: var(--text-xl);
   }
 }
