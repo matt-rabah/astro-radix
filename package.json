@@ -2,17 +2,20 @@
   "name": "matt-rabah-portfolio",
   "version": "1.0.0",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
+    "dev": "tinacms dev -c \"astro dev\"",
+    "build": "tinacms build && astro build",
     "preview": "astro preview",
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.0",
-    "astro": "^5.0.0",
+    "@astrojs/check": "^0.9.9",
+    "@tinacms/cli": "^2.5.1",
+    "@types/node": "^26.0.0",
+    "astro": "^6.4.8",
     "lint-staged": "^15.5.2",
     "prettier": "^3.8.4",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "shiki": "^4.2.0"
   },
   "lint-staged": {
     "*.{astro,js,jsx,ts,tsx,css,md,json}": "prettier --write"
@@ -21,9 +24,13 @@
     "prettier --write"
   ],
   "dependencies": {
+    "@astrojs/node": "^10.1.4",
+    "@astrojs/prism": "^4.0.2",
     "@astrojs/react": "^5.0.7",
     "@radix-ui/themes": "^3.3.0",
+    "@tinacms/astro": "^0.5.0",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "tinacms": "^3.9.3"
   }
 }
