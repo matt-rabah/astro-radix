@@ -2,10 +2,11 @@
   "name": "matt-rabah-portfolio",
   "version": "1.0.0",
   "scripts": {
-    "dev": "tinacms dev -c \"astro dev\"",
-    "build": "tinacms build && astro build",
+    "dev": "astro dev",
+    "build": "astro build",
     "preview": "astro preview",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "check": "astro check"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.9",
@@ -20,9 +21,6 @@
   "lint-staged": {
     "*.{astro,js,jsx,ts,tsx,css,md,json}": "prettier --write"
   },
-  "*.{css,md,json}": [
-    "prettier --write"
-  ],
   "dependencies": {
     "@astrojs/node": "^10.1.4",
     "@astrojs/partytown": "^2.1.7",
