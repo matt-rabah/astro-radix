@@ -46,7 +46,6 @@
   --font-accent: "Produkt", var(--font-sans);
 
   /* Font sizes */
-  --text-xs: 0.75rem; /* 12px */
   --text-sm: 0.875rem; /* 14px */
   --text-base: 1rem; /* 16px */
   --text-md: 1.0625rem; /* 17px */
@@ -56,8 +55,6 @@
   --text-3xl: 2.5rem; /* 40px */
   --text-4xl: 3rem; /* 48px */
   --text-5xl: 4rem; /* 64px */
-  --text-6xl: 5rem; /* 80px */
-  --text-7xl: 6rem; /* 96px */
 
   /* Font weights */
   --weight-light: 300;
@@ -99,9 +96,6 @@
   --space-6: 3rem; /* 48px */
   --space-8: 4rem; /* 64px */
   --space-10: 5rem; /* 80px */
-  --space-12: 6rem; /* 96px */
-  --space-16: 8rem; /* 128px */
-  --space-20: 10rem; /* 160px */
 
   --container-max: 1200px;
   --container-wide: 1440px;
