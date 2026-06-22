@@ -15,7 +15,7 @@
      Color system  (unchanged)
      ======================================== */
 
-  --color-bg-base: #ffffff;
+  --color-bg-base: #f5f6f7;
   --color-bg-surface: #f7f8f8;
   --color-bg-inset: #eef1f1;
 
@@ -27,11 +27,11 @@
   --color-border-strong: #c8cecc;
 
   --color-primary: #010302;
-  --color-accent: #1823c9;
+  --color-accent: #0118dc;
   --color-accent-muted: #334155;
 
   --color-footer-bg: #000504;
-  --color-footer-text: #ffffff;
+  --color-footer-text: #f5f6f7;
   --color-footer-muted: #989a99;
   --color-footer-subtle: #797c7b;
   --color-footer-border: rgb(255 255 255 / 10%);
@@ -185,14 +185,14 @@ html.dark {
   --color-bg-surface: #101514;
   --color-bg-inset: #171d1c;
 
-  --color-text-base: #ffffff;
+  --color-text-base: #f5f6f7;
   --color-text-muted: #989a99;
   --color-text-subtle: #797c7b;
 
   --color-border: rgb(255 255 255 / 12%);
   --color-border-strong: rgb(255 255 255 / 20%);
 
-  --color-primary: #ffffff;
-  --color-accent: #8ea2ff;
+  --color-primary: #f5f6f7;
+  --color-accent: #0118dc;
   --color-accent-muted: #cbd5e1;
 }
