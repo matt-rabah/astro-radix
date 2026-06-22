@@ -12,7 +12,7 @@
     "@tinacms/cli": "^2.5.1",
     "@types/node": "^26.0.0",
     "astro": "^6.4.8",
-    "lint-staged": "^15.5.2",
+    "lint-staged": "^17.0.8",
     "prettier": "^3.8.4",
     "prettier-plugin-astro": "^0.14.1",
     "shiki": "^4.2.0"
@@ -25,6 +25,7 @@
   ],
   "dependencies": {
     "@astrojs/node": "^10.1.4",
+    "@astrojs/partytown": "^2.1.7",
     "@astrojs/prism": "^4.0.2",
     "@astrojs/react": "^5.0.7",
     "@radix-ui/themes": "^3.3.0",
