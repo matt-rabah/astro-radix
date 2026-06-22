@@ -11,14 +11,14 @@
   --color-bg-surface: #f7f8f8;
   --color-bg-inset: #eef1f1;
 
-  --color-text-base: #000504;
+  --color-text-base: #010302;
   --color-text-muted: #6d6e6e;
   --color-text-subtle: #797c7b;
 
   --color-border: #dfe4e3;
   --color-border-strong: #c8cecc;
 
-  --color-primary: #000504;
+  --color-primary: #010302;
   --color-accent: #1823c9;
   --color-accent-muted: #334155;
 
@@ -46,6 +46,7 @@
   --font-accent: "Produkt", var(--font-sans);
 
   /* Font sizes */
+  --text-xs: 0.75rem; /* 12px */
   --text-sm: 0.875rem; /* 14px */
   --text-base: 1rem; /* 16px */
   --text-md: 1.0625rem; /* 17px */
@@ -65,14 +66,14 @@
 
   /* Line heights */
   --leading-none: 1;
-  --leading-display: 0.88;
+  --leading-display: 0.8;
   --leading-tight: 1.02;
   --leading-snug: 1.16;
   --leading-normal: 1.5;
   --leading-relaxed: 1.65;
 
   /* Letter spacing */
-  --tracking-display: -0.045em;
+  --tracking-display: -0.02em;
   --tracking-tight: -0.03em;
   --tracking-snug: -0.02em;
   --tracking-normal: 0;
@@ -96,6 +97,9 @@
   --space-6: 3rem; /* 48px */
   --space-8: 4rem; /* 64px */
   --space-10: 5rem; /* 80px */
+  --space-12: 6rem; /* 96px */
+  --space-16: 8rem; /* 128px */
+  --space-20: 10rem; /* 160px */
 
   --container-max: 1200px;
   --container-wide: 1440px;
@@ -137,4 +141,6 @@ html.dark {
   --color-border-strong: rgb(255 255 255 / 20%);
 
   --color-primary: #ffffff;
+  --color-accent: #8ea2ff;
+  --color-accent-muted: #cbd5e1;
 }
