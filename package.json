@@ -28,5 +28,10 @@
     "@radix-ui/themes": "^3.3.0",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
+  },
+  "allowScripts": {
+    "esbuild@0.27.7": true,
+    "sharp@0.34.5": true,
+    "fsevents@2.3.3": true
   }
 }
