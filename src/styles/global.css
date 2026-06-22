@@ -1,123 +1,90 @@
 @import "./design-tokens.css";
 
 /* ========================================
-   Local font faces
-   Fonts are served from public/fonts/
+   Local font faces  (served from public/fonts/)
    ======================================== */
 
-/* Graphik */
+/* Adobe Clean - sans (workhorse) */
 @font-face {
-  font-family: "Graphik";
-  src: url("/fonts/graphik-regular.woff2") format("woff2");
+  font-family: "Adobe Clean";
+  src: url("/fonts/AdobeClean-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "Graphik";
-  src: url("/fonts/graphik-medium.woff2") format("woff2");
+  font-family: "Adobe Clean";
+  src: url("/fonts/AdobeClean-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "Graphik";
-  src: url("/fonts/graphik-semibold.woff2") format("woff2");
-  font-weight: 600;
+  font-family: "Adobe Clean";
+  src: url("/fonts/AdobeClean-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Adobe Clean";
+  src: url("/fonts/AdobeClean-Black.woff2") format("woff2");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
 
+/* Adobe Clean Cond - eyebrow / labels
+   400 = condensed regular, 700 = bold semi-condensed.
+   Widths differ slightly, so use one weight per context. */
 @font-face {
-  font-family: "Graphik";
-  src: url("/fonts/graphik-bold.woff2") format("woff2");
+  font-family: "Adobe Clean Cond";
+  src: url("/fonts/AdobeClean-Cond.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Adobe Clean Cond";
+  src: url("/fonts/AdobeClean-BoldSemiCn.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
 }
 
-/* Produkt */
+/* Adobe Clean Serif - accent (prose, pull quotes, italics) */
 @font-face {
-  font-family: "Produkt";
-  src: url("/fonts/produkt-regular.woff2") format("woff2");
+  font-family: "Adobe Clean Serif";
+  src: url("/fonts/AdobeCleanSerif-Regular.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
-
-/* Tiempos Fine */
 @font-face {
-  font-family: "Tiempos Fine";
-  src: url("/fonts/tiempos-fine-light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Tiempos Fine";
-  src: url("/fonts/tiempos-fine-light-italic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Tiempos Headline */
-@font-face {
-  font-family: "Tiempos Headline";
-  src: url("/fonts/tiempos-headline-light.woff2") format("woff2");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Tiempos Headline";
-  src: url("/fonts/tiempos-headline-light-italic.woff2") format("woff2");
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-/* Tiempos Text */
-@font-face {
-  font-family: "Tiempos Text";
-  src: url("/fonts/tiempos-text-regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Tiempos Text";
-  src: url("/fonts/tiempos-text-regular-italic.woff2") format("woff2");
+  font-family: "Adobe Clean Serif";
+  src: url("/fonts/AdobeCleanSerif-It.woff2") format("woff2");
   font-weight: 400;
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "Tiempos Text";
-  src: url("/fonts/tiempos-text-medium.woff2") format("woff2");
+  font-family: "Adobe Clean Serif";
+  src: url("/fonts/AdobeCleanSerif-Medium.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "Tiempos Text";
-  src: url("/fonts/tiempos-text-medium-italic.woff2") format("woff2");
+  font-family: "Adobe Clean Serif";
+  src: url("/fonts/AdobeCleanSerif-MediumIt.woff2") format("woff2");
   font-weight: 500;
   font-style: italic;
   font-display: swap;
 }
-
 @font-face {
-  font-family: "Tiempos Text";
-  src: url("/fonts/tiempos-text-semibold.woff2") format("woff2");
-  font-weight: 600;
+  font-family: "Adobe Clean Serif";
+  src: url("/fonts/AdobeCleanSerif-Black.woff2") format("woff2");
+  font-weight: 900;
   font-style: normal;
   font-display: swap;
 }
@@ -144,7 +111,7 @@ body {
   font-family: var(--font-sans);
   font-size: var(--text-base);
   font-weight: var(--weight-normal);
-  line-height: var(--leading-normal);
+  line-height: var(--leading-body);
   color: var(--color-text-base);
   background: var(--color-bg-base);
   -webkit-font-smoothing: antialiased;
@@ -207,7 +174,9 @@ main {
 }
 
 /* ========================================
-   Typography
+   Typography - DESKTOP
+   Sizes follow Spectrum tokens; line height 1.3 (heading) / 1.5 (body).
+   Hero h1 bold (Spectrum 2 display); h2-h4 medium (editorial restraint).
    ======================================== */
 
 h1,
@@ -225,46 +194,42 @@ h6 {
 
 h1 {
   max-width: 1120px;
-  margin-top: 42px;
+  margin-top: var(--space-5);
   margin-bottom: 20px;
-  font-size: clamp(3.25rem, 5.4vw, 4.5rem);
-  font-weight: var(--weight-semibold);
-  line-height: 0.88;
-  letter-spacing: -0.03em;
-  text-wrap: normal;
+  font-size: var(--text-9xl); /* 60px desktop */
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-display);
+  letter-spacing: var(--tracking-display);
+  text-wrap: balance;
 }
 
 h2 {
   max-width: 980px;
-  margin-top: 32px;
+  margin-top: var(--space-4);
   margin-bottom: 14px;
-  font-size: clamp(2.375rem, 4vw, 3.5rem);
-  font-weight: var(--weight-normal);
-  line-height: 1;
-  letter-spacing: -0.024em;
-  text-wrap: normal;
+  font-size: var(--text-5xl); /* 36px desktop */
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-snug);
+  text-wrap: balance;
 }
 
 h3 {
   max-width: 820px;
-  margin-top: 24px;
+  margin-top: var(--space-3);
   margin-bottom: 10px;
-  font-size: clamp(1.75rem, 2.6vw, 2.25rem);
-  font-weight: var(--weight-normal);
-  line-height: 1.06;
-  letter-spacing: -0.02em;
-  text-wrap: normal;
+  font-size: var(--text-3xl); /* 28px desktop */
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-heading);
 }
 
 h4 {
   max-width: 760px;
-  margin-top: 24px;
+  margin-top: var(--space-3);
   margin-bottom: 10px;
-  font-size: clamp(1.375rem, 2vw, 1.75rem);
-  font-weight: var(--weight-normal);
-  line-height: 1.12;
-  letter-spacing: -0.016em;
-  text-wrap: normal;
+  font-size: var(--text-xl); /* 22px desktop */
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-heading);
 }
 
 h5,
@@ -272,10 +237,9 @@ h6 {
   max-width: 680px;
   margin-top: var(--space-3);
   margin-bottom: var(--space-1);
-  font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
-  line-height: var(--leading-snug);
-  letter-spacing: var(--tracking-snug);
+  font-size: var(--text-base); /* 16px desktop */
+  font-weight: var(--weight-medium);
+  line-height: var(--leading-heading);
 }
 
 p {
@@ -291,33 +255,53 @@ p:last-child {
 .lead {
   max-width: 760px;
   font-family: var(--font-sans);
-  font-size: clamp(var(--text-lg), 1.7vw, var(--text-xl));
+  font-size: var(--text-md); /* 18px desktop */
   font-weight: var(--weight-normal);
-  line-height: var(--leading-snug);
+  line-height: var(--leading-heading);
   letter-spacing: var(--tracking-snug);
   color: var(--color-text-base);
 }
 
+/* Eyebrow - condensed, uppercase, tracked (Spectrum "detail" role) */
 .accent-text {
   display: inline-block;
   margin-bottom: var(--space-3);
-  font-family: var(--font-accent);
-  font-size: var(--text-sm);
-  font-weight: var(--weight-bold);
-  line-height: 1.2;
+  font-family: var(--font-cond);
+  font-size: var(--text-sm); /* 14px desktop */
+  font-weight: var(--weight-bold); /* -> bold semi-condensed face */
+  line-height: var(--leading-heading);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
   color: var(--color-text-muted);
 }
 
-/* Editorial prose utility */
+/* Serif accent - opt-in emphasis / pull quotes */
+.accent-serif {
+  font-family: var(--font-serif);
+  font-weight: var(--weight-normal);
+  font-style: italic;
+}
+
+blockquote {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-3);
+  border-left: var(--border-1) solid var(--color-border-strong);
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--text-lg); /* 20px desktop */
+  line-height: var(--leading-heading);
+  color: var(--color-text-base);
+}
+
+/* Editorial prose - serif reading face (the one serif body context) */
 .prose,
 .prose-blog {
   max-width: 760px;
-  font-family: var(--font-serif-text);
-  font-size: clamp(var(--text-lg), 2vw, var(--text-xl));
-  line-height: var(--leading-relaxed);
-  letter-spacing: var(--tracking-snug);
+  font-family: var(--font-serif);
+  font-size: var(--text-md); /* 18px desktop */
+  font-weight: var(--weight-normal);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-normal);
 }
 
 .prose h1,
@@ -329,66 +313,75 @@ p:last-child {
 .prose-blog h3,
 .prose-blog h4 {
   max-width: 980px;
-  font-family: var(--font-sans);
+  font-family: var(--font-sans); /* headings stay sans */
 }
 
 .prose p,
 .prose-blog p {
-  max-width: 70ch;
+  max-width: 68ch;
+}
+
+.prose em,
+.prose i,
+.prose-blog em,
+.prose-blog i {
+  font-style: italic; /* uses Adobe Clean Serif Italic */
 }
 
 /* ========================================
-   Responsive
+   Typography - MOBILE (Spectrum "large")
+   Body/eyebrow/lead/prose already scale up via the token swap in
+   design-tokens.css. Only the oversized display headings get a smaller
+   token here, per Spectrum guidance (keep heading + paragraph width sane).
    ======================================== */
 
-@media (max-width: 800px) {
-  .container,
-  .container-wide {
-    width: min(100% - 1.5rem, var(--container-max));
-  }
-
+@media (max-width: 768px) {
   h1 {
     max-width: 100%;
-    font-size: clamp(2.875rem, 11vw, 3.75rem);
-    line-height: 0.9;
-    letter-spacing: -0.028em;
+    margin-top: var(--space-4);
+    font-size: var(--text-6xl); /* 49px mobile (down from 70px auto) */
   }
 
   h2 {
     max-width: 100%;
-    font-size: clamp(2rem, 8vw, 2.75rem);
-    line-height: 1.02;
+    font-size: var(--text-3xl); /* 34px mobile */
   }
 
   h3 {
     max-width: 100%;
-    font-size: clamp(1.5rem, 6vw, 2rem);
+    font-size: var(--text-xl); /* 27px mobile */
   }
 
   h4 {
     max-width: 100%;
-    font-size: clamp(1.25rem, 5vw, 1.625rem);
+    font-size: var(--text-md); /* 22px mobile */
   }
 
-  .lead {
+  .lead,
+  .prose,
+  .prose-blog {
     max-width: 100%;
-    font-size: var(--text-lg);
   }
 }
 
-@media (max-width: 480px) {
-  .container,
-  .container-wide {
-    width: min(100% - 1.25rem, var(--container-max));
-  }
+/* ========================================
+   Typography - DARK MODE optical fixes
+   Adobe Clean ships no dark-specific faces, so this is an optical
+   correction only: white-on-dark blooms and visually bolds, which
+   closes up tight tracking. Relax negative tracking on large display
+   text and open the caps eyebrow slightly. Sizes/weights unchanged.
+   ======================================== */
 
-  h1 {
-    font-size: 2.875rem;
-  }
+html.dark h1 {
+  letter-spacing: 0;
+}
 
-  h2 {
-    font-size: 2.125rem;
-  }
+html.dark h2 {
+  letter-spacing: 0;
+}
+
+html.dark .accent-text {
+  letter-spacing: 0.1em;
 }
 
 /* ========================================
@@ -405,7 +398,7 @@ p:last-child {
   border-radius: var(--radius-pill);
   font-family: var(--font-sans);
   font-size: var(--text-sm);
-  font-weight: var(--weight-semibold);
+  font-weight: var(--weight-medium);
   line-height: 1;
   transition:
     color 0.2s ease,
@@ -453,7 +446,8 @@ p:last-child {
 }
 
 /* ========================================
-   Responsive
+   Responsive - container gutters
+   (Type scale handled by tokens + the blocks above.)
    ======================================== */
 
 @media (max-width: 800px) {
@@ -461,43 +455,11 @@ p:last-child {
   .container-wide {
     width: min(100% - 1.5rem, var(--container-max));
   }
-
-  h1 {
-    max-width: 100%;
-    font-size: clamp(3.25rem, 15vw, 4.25rem);
-    line-height: 0.84;
-    letter-spacing: -0.03em;
-  }
-
-  h2 {
-    max-width: 100%;
-    font-size: clamp(2.375rem, 11vw, 3.375rem);
-    line-height: 0.98;
-  }
-
-  h3,
-  h4 {
-    max-width: 100%;
-    font-size: clamp(1.625rem, 7vw, 2.125rem);
-  }
-
-  .lead {
-    max-width: 100%;
-    font-size: var(--text-lg);
-  }
 }
 
 @media (max-width: 480px) {
   .container,
   .container-wide {
     width: min(100% - 1.25rem, var(--container-max));
-  }
-
-  h1 {
-    font-size: 3.125rem;
-  }
-
-  h2 {
-    font-size: 2.375rem;
   }
 }
